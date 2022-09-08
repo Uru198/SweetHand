@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+</head>
+<body style="background: rgb(227, 227, 217);">
+    <div class="container" >
+        <header class="d-flex justify-content-between align-items-center" style="background-color: rgb(160, 160, 152); color: rgb(6, 6, 6); border: solid 2px black; padding: 10px; margin-top: 10px;">
+            <h1>Administrador</h1>
+            <a href="/new/producto" class="btn btn-primary">Agregar Producto</a>
+             <a href="/dashboard" class="btn btn-warning">Dashboard</a>
+            <a href="/logout" class="btn btn-danger">Cerrar Sesión</a>
+        </header>
+        <br>
+        <h2>productos</h2>
+        <table class="table  table-hover" >
+            <thead>
+                <tr>
+                    <th>Nombre Producto</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                    <tr> 
+                        <td>{{producto.product}}</td>
+                        <td>{{producto.price}}</td>
+                        <td>
+                           
+                            <a href="/view/producto/{{producto.id}}" class="btn btn-warning">Ver Producto</a>
+                            
+                                <a href="/edit/producto/{{producto.id}}" class="btn btn-success">Editar</a>
+                                <a href="/delete/producto/{{producto.id}}" class="btn btn-danger">Borrar</a>  
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
